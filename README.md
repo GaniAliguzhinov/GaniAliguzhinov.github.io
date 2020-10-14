@@ -1,5 +1,9 @@
 > March, 2016: If you're on an old version of Jekyll Now and run into a) build warnings or b) syntax highlighting issues caused by [Jekyll 3 and GitHub Pages updates](https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0), just :sparkles:[update your _config.yml](https://github.com/barryclark/jekyll-now/pull/445/files):sparkles: and you'll be set!
 
+# RSS
+
+Can publish RSS automatically to https://dev.to/ganialiguzhinov
+
 # SVG
 
 I used [Iconscout](https://iconscout.com) to search for svgs, set color to 4E4E4E, ran them through [svgo compresser](https://github.com/svg/svgo), and converted to base 64 with [mobilefish](https://www.mobilefish.com/services/base64/base64.php). Since iconscout provides 24px svgs, I set icons to 24 px.
