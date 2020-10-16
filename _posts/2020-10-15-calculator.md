@@ -276,34 +276,20 @@ Let's also add support for variables and functions:
 
 ## Parser
 
-Since we do not like doing things the hard way, we will use a 
-recursive descent parser. 
+Parser is used to process the tokens from the lexer.
+It builds an AST of the input. Leaves are tokens.
 
-The goal of parser is to take tokens and build a tree, AST in fact.
+Parser can detect _syntax errors_ - when we cannot build a tree.
 
-Our AST nodes will look like this:
+Our CFG describes nonterminals, with start symbol `<expr>`.
 
-```R
-Number
 
-Variable
+## Interpreter
 
-Function
+Interpreter relies on the AST to know what it supposed to do. 
+Since we have variables, we need a _vtable_ to know what values those variables hold.
+We also need an _ftable_ binding function names with ASTs of their expressions.
 
-BinaryOp
-
-UnaryOp
-
-Assignment
-```
-
-How do we build an AST? First, we use the fact that every statement 
-must be an expression, and experessions are delimited with a newline character.
-
-So, we need a function that uses lexer to parse an expression.
-
-That function, in turn, will use a function that parses terms, etc., according to the grammar.
-
-Whenever we encounter a binary or unary operation, assignment, function, variable, or number, we add according nodes to the tree. 
+Interpreter takes in the sentence AST, and uses ftable and vtable to evaluate it.
 
 The source code of this example is available on [github](https://github.com/GaniAliguzhinov/CppCalc)
